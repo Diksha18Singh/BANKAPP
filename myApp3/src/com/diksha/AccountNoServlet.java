@@ -1,5 +1,5 @@
 package com.diksha;
-import com.diksha.Account.*;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -11,16 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class AccountSer
+ * Servlet implementation class AccountNoServlet
  */
-@WebServlet("/AccountCreate.do")
-public class AccountSer extends HttpServlet {
+@WebServlet("/get-account-no.do")
+public class AccountNoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AccountSer() {
+    public AccountNoServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,39 +38,11 @@ public class AccountSer extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		
-		String balance=request.getParameter("balance");
-		String pass=request.getParameter("password");
-		//String pass1=request.getParameter("pass1");
-		String AccoType=request.getParameter("AccoType");
-		int bal=Integer.parseInt(balance);
-		int passw=Integer.parseInt(pass);
 		HttpSession session = request.getSession();
-		
-		String PAN = (String) session.getAttribute("PAN");
-		
-		int customerId = ADDAccDOA.getIdFromPAN(PAN);
-		
-		AccountDOA accDAO = new AccountDOA();
-		
-		Account account = new Account();
-		account.setCustomerid(customerId);
-		account.setAcct(AccoType);
-		account.setBalance(bal);
-		account.setPass(passw);
-		 
-		
-		accDAO.create(account);
-		
-			
-		session.setAttribute("cust_id", customerId);
-
+		Integer custId = (Integer) session.getAttribute("cust_id");
+		int accNo = AccountDOA.getIdFromCustID(custId);
 		PrintWriter writer = response.getWriter();
-		writer.println("<script type=\"text/javascript\">");
-		writer.println("alert('Your account creation is under processing... ');");
-		writer.println("location='facility.html';");
-		writer.println("</script>");
+		writer.println(accNo);
 		writer.close();
 	}
 

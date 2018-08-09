@@ -50,6 +50,33 @@ form{
 background-color:powderblue;}
  </style>
 <title>Insert title here</title>
+<script>
+window.onload=function(){
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", "get-account-no.do");
+	
+	xhr.onreadystatechange = function()
+	{
+		var DONE = 4;
+		var OK = 200;
+		
+		if (xhr.readyState == DONE)
+		{
+			if (xhr.status == OK)
+			{
+				var accSpan = document.getElementById("acc_no");
+				accSpan.innerHTML = xhr.responseText;
+			}
+			else
+			{
+				console.log(xhr.status);
+			}
+		}
+	}
+	
+	xhr.send();
+}
+</script>
 </head>
 <body>
 
@@ -59,6 +86,7 @@ background-color:powderblue;}
 <form input align="center" action="ADDAcc.do" method="post" >
 <br><br><br><br><br><br>
 
+<p><b>Account Number: </b><span id="acc_no"></span></p>
 
 <input type="radio" name="paytype" id="ele_radio">Electric Bill
   <input type="radio" name="paytype" id="phone_radio">Phone Bill

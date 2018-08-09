@@ -14,11 +14,12 @@ public class Account {
 		super();
 	}
 
-public Account(int accno, int balance, String acct,int Customerid) {
+public Account(int balance, String acct, int Customerid,int pass) {
 		super();
+		
 		this.Customerid=Customerid;
 		this.balance = balance;
-		this.pass=pass;
+		this.pass= pass;
 		this.acct = acct;
 	}
 
@@ -29,8 +30,6 @@ public int getPass() {
 public void setPass(int pass) {
 	this.pass = pass;
 }
-
-
 
 
 
