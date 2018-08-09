@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<style>
+form{
+border-style: solid;
+background-color:powderblue;}
+ div{
+ 
+ margin-left:400px;
+ margin-right:400px;
+ 
+ 
+ align:centre;
+ }
+ body
+{
+background-size: 2000px 2000px;
+background-repeat:no-repeat;
+background-image:url("images/img.jpg");
+ margin: 0;
+font-family: Arial, Helvetica, sans-serif;
+}
+input[type=text] {
+	align:centre;
+    width: 230px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}
+
+ </style>
+</head>
+<body>
+
+<h1 style="background-color:powderblue;" align="center"  >Bank Forms</h1>
+
+<div>
+<br><br><br>
+<form align="center" action="Bills.do" method="post">
+<br><br><br>
+  <input type="radio" name="title" value="Mr">Mr
+<input type="radio" name="title" value="Mrs">Mrs
+<input type="radio" name="title" value="Ms">Ms
+<input type="radio" name="title" value="Dr">Dr
+  <br><br><br>
+  
+  <input type="text" name="firstname"  placeholder="Firstname" required>
+  <br><br>
+ 
+  <input type="text" name="lastname"  placeholder="Lastname" required>
+  <br><br>
+  <input type="number" name="Age"  placeholder="AGE" min="18" required>
+  <br><br><br>
+  <input type="text" name="PAN"   placeholder="PAN NUMBER" required>
+  <br><br><br>
+  <input type="Date" name="DOB" value="DOB" required>
+  <br><br><br><br>
+  <input type="submit" value="Submit" width="48" height="48" required>
+   <br><br><br><br>
+</form> 
+</div>>
+
+</body>
+</html>
